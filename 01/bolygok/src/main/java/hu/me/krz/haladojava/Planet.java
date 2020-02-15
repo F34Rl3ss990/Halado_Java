@@ -6,10 +6,10 @@ public final class Planet {
 	public final  String name;
 	
 	public Planet(Point position, double radius, String name) {
-	
 		this.position = position;
 		this.radius = radius;
 		this.name = name;
+		
 	}
 
 	public Point getPosition() {

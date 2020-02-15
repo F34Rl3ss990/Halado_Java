@@ -14,6 +14,16 @@
     <version>1.0</version>
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
+<dependencies>
+    
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.10</version>
+        <scope>provided</scope>
+    </dependency>
+    
+</dependencies>
 
   <name>diak-puska</name>
 </project>
