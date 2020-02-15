@@ -20,20 +20,20 @@ public class Vasarlas {
 			int osszespenz = 0;
 			int tanulok = Tanulo.getTanulok();
 			for (Tanulo item : tanulo) {
-				if (item.getPenz()>0 && item.consumption((int) (Math.random() * 1501) + 1500) == false) {
+				if (item.getPenz() > 0 && item.consumption((int) (Math.random() * 1501) + 1500) == false) {
 					osszespenz += item.getPenz();
 				} else
 					item.setTanulokLower();
 			}
-			if(tanulok!=0)
-			System.out.println("Átlag pénz" + osszespenz / tanulok);
+			if (tanulok != 0)
+				System.out.println("Átlag pénz" + osszespenz / tanulok);
 			else
 				System.out.println("mindenkinek elfogyott a pénze");
-			
+
 		}
-		System.out.println("Ennyi tanulónak maradt pénze: "+ Tanulo.getTanulok());
+		System.out.println("Ennyi tanulónak maradt pénze: " + Tanulo.getTanulok());
 		System.out.println(tanulo.toString());
-		
+
 	}
 
 }

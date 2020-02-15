@@ -1,16 +1,17 @@
 package hu.me.krz.haladojava;
 
-public class Diak extends Szemely implements Valogato{
+public class Diak extends Szemely implements Valogato {
 
 	private int puskaszam;
+
 	public Diak(String nev, int eletkor, int puskaszam) {
 		super(nev, eletkor);
-		this.puskaszam=puskaszam;
+		this.puskaszam = puskaszam;
 	}
 
 	@Override
 	public boolean joAlanyE() {
-		if(puskaszam==0)
+		if (puskaszam == 0)
 			return true;
 		return false;
 	}
@@ -19,6 +20,5 @@ public class Diak extends Szemely implements Valogato{
 	public String toString() {
 		return "Diak [puskaszam=" + puskaszam + ", getNev()=" + getNev() + ", getEletkor()=" + getEletkor() + "]";
 	}
-	
 
 }

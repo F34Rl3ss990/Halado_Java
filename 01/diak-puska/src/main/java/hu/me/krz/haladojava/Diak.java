@@ -2,6 +2,7 @@ package hu.me.krz.haladojava;
 
 import lombok.Getter;
 import lombok.ToString;
+
 @ToString(callSuper = true)
 public class Diak extends Szemely implements Comparable<Diak> {
 	@Getter
@@ -11,24 +12,22 @@ public class Diak extends Szemely implements Comparable<Diak> {
 		super(nev, eletkor);
 		this.puska = puska;
 	}
-	
-	/*public int getPuska() {
-		return puska;
-	}*/
-	/*@Override
-	public String toString() {
-		return "Diak [puska=" + puska + ", név=" + getNev() + ", életkor=" + getEletkor() + "]";
-	}*/
+
+	/*
+	 * public int getPuska() { return puska; }
+	 */
+	/*
+	 * @Override public String toString() { return "Diak [puska=" + puska + ", név="
+	 * + getNev() + ", életkor=" + getEletkor() + "]"; }
+	 */
 
 	@Override
 	public int compareTo(Diak o) {
-		if(puska==o.getPuska())
+		if (puska == o.getPuska())
 			return 0;
-		else if (puska>o.getPuska())
+		else if (puska > o.getPuska())
 			return 1;
 		else
 			return -1;
-		
 	}
-
 }
