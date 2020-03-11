@@ -40,4 +40,40 @@ public class Astronomer {
 		}
 		return null;
 	}
+	public String getName() {
+		return this.name;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((planet == null) ? 0 : planet.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Astronomer other = (Astronomer) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (planet == null) {
+			if (other.planet != null)
+				return false;
+		} else if (!planet.equals(other.planet))
+			return false;
+		return true;
+	}
+	
+	
 }

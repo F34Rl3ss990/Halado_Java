@@ -4,8 +4,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString
-@Getter(AccessLevel.PUBLIC)
+//@ToString
+//@Getter(AccessLevel.PUBLIC)
 public class Szemely {
 
 	private String nev;
@@ -16,10 +16,10 @@ public class Szemely {
 		this.eletkor = eletkor;
 	}
 
-	/*
-	 * public String getNev() { return nev; }
-	 * 
-	 * public int getEletkor() { return eletkor; }
-	 */
+	
+	  public String getNev() { return nev; }
+	  
+	  public int getEletkor() { return eletkor; }
+	 
 
 }

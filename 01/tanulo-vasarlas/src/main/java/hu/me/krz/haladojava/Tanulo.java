@@ -3,39 +3,38 @@ package hu.me.krz.haladojava;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString
+//@ToString
 public class Tanulo {
 	protected final String nev;
-	@Getter
+	//@Getter
 	protected int penz;
-	@Getter
+	//@Getter
 	protected static int tanulok = 0;
 
 	public Tanulo(String nev, int penz) {
 		this.nev = nev;
 		this.penz = penz;
 	}
-
-	/*
-	 * public static int osszestanulo() { return tanulok; }
-	 */
-	/*
-	 * public int penz() { return penz; }
-	 */
+	
+	public static int osszestanulo() { return tanulok; }
+	 
+	
+	public int getPenz() { return this.penz; }
+	 
 	public Tanulo(String nev) {
 		this.nev = nev;
 		this.penz = 10000;
-		tanulok++;
+		Tanulo.tanulok++;
 	}
 
-	public void setTanulokLower() {
-		this.tanulok -= tanulok;
+	public static void setTanulokLower() {
+		Tanulo.tanulok--;
 	}
 
-	/*
-	 * @Override public String toString() { return "Tanulo [nev=" + nev + ", " +
-	 * penz + "]"; }
-	 */
+	
+	  @Override public String toString() { return "Tanulo [nev=" + nev + ", " +
+	  penz + "]"; }
+	 
 	public boolean consumption(int penz) {
 		this.penz -= penz;
 		if (this.penz == 0 || this.penz < 0)

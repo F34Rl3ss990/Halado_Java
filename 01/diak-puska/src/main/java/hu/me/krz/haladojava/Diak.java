@@ -3,9 +3,9 @@ package hu.me.krz.haladojava;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString(callSuper = true)
+//@ToString(callSuper = true)
 public class Diak extends Szemely implements Comparable<Diak> {
-	@Getter
+	//@Getter
 	private int puska;
 
 	public Diak(String nev, int eletkor, int puska) {
@@ -13,13 +13,13 @@ public class Diak extends Szemely implements Comparable<Diak> {
 		this.puska = puska;
 	}
 
-	/*
-	 * public int getPuska() { return puska; }
-	 */
-	/*
-	 * @Override public String toString() { return "Diak [puska=" + puska + ", név="
-	 * + getNev() + ", életkor=" + getEletkor() + "]"; }
-	 */
+	
+	  public int getPuska() { return puska; }
+	 
+	
+	  @Override public String toString() { return "Diak [puska=" + puska + ", név="
+	  + getNev() + ", életkor=" + getEletkor() + "]"; }
+	 
 
 	@Override
 	public int compareTo(Diak o) {

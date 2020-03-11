@@ -18,7 +18,7 @@ public class Vasarlas {
 		tanulo.add(tanulo5);
 		for (int i = 0; i < 6; i++) {
 			int osszespenz = 0;
-			int tanulok = Tanulo.getTanulok();
+			int tanulok = Tanulo.osszestanulo();
 			for (Tanulo item : tanulo) {
 				if (item.getPenz() > 0 && item.consumption((int) (Math.random() * 1501) + 1500) == false) {
 					osszespenz += item.getPenz();
@@ -31,7 +31,7 @@ public class Vasarlas {
 				System.out.println("mindenkinek elfogyott a pénze");
 
 		}
-		System.out.println("Ennyi tanulónak maradt pénze: " + Tanulo.getTanulok());
+		System.out.println("Ennyi tanulónak maradt pénze: " + Tanulo.osszestanulo());
 		System.out.println(tanulo.toString());
 
 	}
