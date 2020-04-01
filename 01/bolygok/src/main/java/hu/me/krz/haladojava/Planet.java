@@ -1,5 +1,7 @@
 package hu.me.krz.haladojava;
 
+import java.util.Objects;
+
 public final class Planet {
 	private Point position;
 	public final double radius;
@@ -36,27 +38,13 @@ public final class Planet {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Planet other = (Planet) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (position == null) {
-			if (other.position != null)
-				return false;
-		} else if (!position.equals(other.position))
-			return false;
-		if (Double.doubleToLongBits(radius) != Double.doubleToLongBits(other.radius))
-			return false;
-		return true;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Planet planet = (Planet) o;
+		return Double.compare(planet.radius, radius) == 0 &&
+				Objects.equals(position, planet.position) &&
+				Objects.equals(name, planet.name);
 	}
-	
 }
+

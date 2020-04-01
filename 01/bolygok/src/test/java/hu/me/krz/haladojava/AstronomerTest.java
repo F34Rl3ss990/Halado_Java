@@ -40,8 +40,8 @@ public class AstronomerTest
         String name = "Nem Tom";
        Astronomer astronomer = new Astronomer(name);
         astronomer.observeTheSky(astronomer);
-       // assertThat(astronomer.getDiscoveredPlanets().size(), is(equalTo(10)));
-        assertThat(astronomer.getDiscoveredPlanets().get(0).getPosition(), is(equalTo(new Point(10, 10, 10))));
+        assertThat(astronomer.getDiscoveredPlanets().size(), is(equalTo(10)));
+        //assertThat(astronomer.getDiscoveredPlanets().get(0).getPosition(), is(equalTo(new Point(10, 10, 10))));
         //assertThat(astronomer.getDiscoveredPlanets().get(0).getName(), is(equalTo(String.format("%s 1", name))));
         
     }
