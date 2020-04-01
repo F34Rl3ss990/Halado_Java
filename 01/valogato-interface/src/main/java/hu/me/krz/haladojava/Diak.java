@@ -11,9 +11,7 @@ public class Diak extends Szemely implements Valogato {
 
 	@Override
 	public boolean joAlanyE() {
-		if (puskaszam == 0)
-			return true;
-		return false;
+		return puskaszam==0;
 	}
 
 	@Override

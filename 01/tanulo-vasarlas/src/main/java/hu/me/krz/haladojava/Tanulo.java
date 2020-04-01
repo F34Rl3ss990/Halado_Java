@@ -1,7 +1,7 @@
 package hu.me.krz.haladojava;
 
-import lombok.Getter;
-import lombok.ToString;
+//import lombok.Getter;
+//import lombok.ToString;
 
 //@ToString
 public class Tanulo {
@@ -17,8 +17,11 @@ public class Tanulo {
 	}
 	
 	public static int osszestanulo() { return tanulok; }
-	 
-	
+
+	public void setPenz(int penz) {
+		this.penz = penz;
+	}
+
 	public int getPenz() { return this.penz; }
 	 
 	public Tanulo(String nev) {
@@ -37,9 +40,7 @@ public class Tanulo {
 	 
 	public boolean consumption(int penz) {
 		this.penz -= penz;
-		if (this.penz == 0 || this.penz < 0)
-			return true;
-		return false;
+		return this.penz == 0 || this.penz < 0;
+		}
 	}
 
-}

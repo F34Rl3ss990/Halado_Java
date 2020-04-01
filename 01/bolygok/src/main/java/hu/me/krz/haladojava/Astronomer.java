@@ -1,11 +1,20 @@
 package hu.me.krz.haladojava;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.security.SecureRandom;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import java.util.List;
+import java.util.Objects;
 
 public class Astronomer {
+	private SecureRandom secureRandomGenerator;
 
+
+	private static final Logger logger = LogManager.getLogger(Astronomer.class);
 	private String name;
 	List<Planet> planet = new ArrayList<>();
 
@@ -21,59 +30,49 @@ public class Astronomer {
 		Point act = new Point(0, 0, 0);
 		for (int i = 1; i < 11; i++) {
 			act = act.translate(new Point(10, 0, 0));
-			Planet bolygo = new Planet(act, Math.random(), astronomer.name);
-			planet.add(bolygo);
+			try {
+				secureRandomGenerator = SecureRandom.getInstance("SHA1PRNG", "SUN");
+				Planet bolygo = new Planet(act, secureRandomGenerator.nextDouble(), astronomer.name);
+				planet.add(bolygo);
+			} catch (NoSuchAlgorithmException  | NoSuchProviderException e) {
+				logger.log(Level.DEBUG, e);
+			}
+
 		}
 		toString();
 	}
 
 	public String toString() {
 		String planetName = "";
-		Point pos = new Point(0, 0, 0);
+		Point pos;
 		double rad = 0;
+
 		for (Planet item : planet) {
 			planetName = item.getName();
-			pos = item.getPosition();
+			pos = new Point ( item.getPosition().getX(), item.getPosition().getY(),item.getPosition().getZ());
 			rad = item.getRadius();
-			System.out.println("Astronomer [name=" + name + ", planetName=" + planetName + ", positionX=" + pos.getX()
+			String message = ("Astronomer [name=" + name + ", planetName=" + planetName + ", positionX=" + pos.getX()
 					+ ", positionY=" + pos.getY() + ", positionZ=" + pos.getZ() + ", radius=" + rad + "]");
+			logger.log(Level.DEBUG, message);
+
 		}
-		return null;
+		return "";
 	}
 	public String getName() {
 		return this.name;
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((planet == null) ? 0 : planet.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Astronomer that = (Astronomer) o;
+		return Objects.equals(name, that.name) &&
+				Objects.equals(planet, that.planet);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Astronomer other = (Astronomer) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (planet == null) {
-			if (other.planet != null)
-				return false;
-		} else if (!planet.equals(other.planet))
-			return false;
-		return true;
+	public int hashCode() {
+		return Objects.hash(name, planet);
 	}
-	
-	
 }
