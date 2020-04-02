@@ -11,9 +11,8 @@ public class Tanar extends Szemely implements Valogato {
 
 	@Override
 	public boolean joAlanyE() {
-		if (getEletkor() <= 30 && atlag >= 4)
-			return true;
-		return false;
+		return (getEletkor() <= 30 && atlag >= 4);
+
 	}
 
 	@Override

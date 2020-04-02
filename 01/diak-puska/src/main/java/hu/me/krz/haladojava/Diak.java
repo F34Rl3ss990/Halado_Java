@@ -1,7 +1,9 @@
 package hu.me.krz.haladojava;
 
-import lombok.Getter;
-import lombok.ToString;
+//import lombok.Getter;
+//import lombok.ToString;
+
+import java.util.Objects;
 
 //@ToString(callSuper = true)
 public class Diak extends Szemely implements Comparable<Diak> {
@@ -29,5 +31,18 @@ public class Diak extends Szemely implements Comparable<Diak> {
 			return 1;
 		else
 			return -1;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Diak diak = (Diak) o;
+		return puska == diak.puska;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(puska);
 	}
 }

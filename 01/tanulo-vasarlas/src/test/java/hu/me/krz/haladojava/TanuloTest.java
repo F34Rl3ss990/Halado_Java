@@ -14,13 +14,13 @@ class TanuloTest {
 		Tanulo tanulo = new Tanulo ("Jóska");
 		tanulo.consumption(3000);
 		assertThat(tanulo.getPenz(), is(equalTo(7000)));
-		Tanulo.setTanulokLower();
+		tanulo.setTanulokLower();
 	}
 	@Test
 	void consumption2() {
 		Tanulo tanulo = new Tanulo ("Jóska");
 		assertThat(tanulo.consumption(3000), is(equalTo(false)));
-		Tanulo.setTanulokLower();
+		tanulo.setTanulokLower();
 	}
 	@Test
 	void osszestanulo() {
@@ -38,16 +38,16 @@ class TanuloTest {
 	void getPenz2() {
 		Tanulo tanulo = new Tanulo("Jóska");
 		assertThat(tanulo.getPenz(), is(equalTo(10000)));
-		Tanulo.setTanulokLower();
+		tanulo.setTanulokLower();
 	}
 	@Test
 	void setTanulokLower() {
 		Tanulo tanulo = new Tanulo ("Jóska");
 		Tanulo tanulo2 = new Tanulo ("Jóska2");
 		assertThat(Tanulo.osszestanulo(), is(equalTo(2)));
-		Tanulo.setTanulokLower();
+		tanulo.setTanulokLower();
 		assertThat(Tanulo.osszestanulo(),is(equalTo(1)));
-		Tanulo.setTanulokLower();
+		tanulo.setTanulokLower();
 	}
 
 
