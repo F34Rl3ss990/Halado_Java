@@ -1,11 +1,16 @@
 package komplex;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Level;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class UseRepository implements UserModify {
+    private final Logger logger = LogManager.getLogger(UseRepository.class);
     private List<User> users = new ArrayList<>();
     public void save(User user) {
-        System.out.printf("%s mentve%n", user.getName());
+        logger.log(Level.INFO, "%s mentve %n", user.getName());
         users.add(user);
     }
     public User getByNektunKod(String neptunkod) {
