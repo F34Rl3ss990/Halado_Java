@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    private boolean isValid(User user) {
+    public boolean isValid(User user) {
         for (Validator validator : validators) {
             if (!validator.isValid(user)) {
                 return false;

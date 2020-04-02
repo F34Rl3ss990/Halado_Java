@@ -1,5 +1,6 @@
 package komplex;
 public class UserDto {
+    private String name;
     public UserDto(String name) {
         this.name = name;
     }
@@ -12,5 +13,4 @@ public class UserDto {
         this.name = name;
     }
 
-    String name;
 }
