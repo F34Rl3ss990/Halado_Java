@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        .fieldError {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<form action="/" method="post"th:object="${paramDTO}">
+    <input type="number" th:field="*{x}" th:class="${#fields.hasErrors('x')} ? fieldError" placeholder="Írj be egy számot">
+    <select th:field="*{operator}">
+        <option th:value="'+'" th:text="'+'"></option>
+        <option th:value="'-'" th:text="'-'"></option>
+        <option th:value="'*'" th:text="'*'"></option>
+        <option th:value="'/'" th:text="'/'"></option>
+    </select>
+    <input type="number" th:field="*{y}" th:class="${#fields.hasErrors('y')} ? fieldError" placeholder="Írj be egy számot">
+
+    <button type="submit" name="calc" value="calculate">Calculate</button>
+    <ul>
+        <li th:each="err : ${#fields.errors('y')}" th:text="${err}" />
+    </ul>
+</form>
+<b>Eredmény: <span th:text="${calculator}">span</span></b>
+
+
+
+</body>
+</html>
